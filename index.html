@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Tab</title>
+    <style>
+        :root {
+            --bg: rgba(255, 255, 255, 0.05);
+            --s-bg: rgba(255, 255, 255, 0.25);
+            --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            --filter: blur(2.5px);
+            --p: 20px;
+            --r: 25px;
+        }
+
+
+        body {
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url('bg.jpg') no-repeat center center/cover;
+            color: white;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        h1,
+        h4 {
+            margin: 0;
+        }
+
+        .inbox {
+            width: fit-content;
+            padding: 0;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+
+        .inbox a {
+            padding: var(--p);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+            gap: 20px;
+            background: var(--bg);
+            box-shadow: var(--shadow);
+            backdrop-filter: var(--filter);
+            -webkit-backdrop-filter: var(--filter);
+            border-radius: var(--r);
+        }
+
+        .inbox a h1 {
+            margin: 0;
+        }
+
+        main {
+            width: 60%;
+            height: fit-content;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 40px;
+            background: transparent;
+        }
+
+        section {
+            width: 100%;
+            height: fit-content;
+            padding: var(--p);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg);
+            backdrop-filter: var(--filter);
+            -webkit-backdrop-filter: var(--filter);
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: var(--r);
+        }
+
+        .sec-1 {
+            flex-direction: column;
+            gap: 15px;
+            font-size: 40px;
+        }
+
+        .sec-1 h1 {
+            margin: 20px;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 0;
+            /* Start with width 0 */
+            animation: greet 2s steps(20) 1 forwards, cursor 0.5s 6;
+        }
+
+        @keyframes greet {
+            0% {
+                width: 0;
+                content: ' ';
+            }
+
+            100% {
+                width: 19.5ch;
+            }
+        }
+
+        @keyframes cursor {
+            0% {
+                border-right: 3px solid transparent;
+            }
+
+            100% {
+                border-right: 3px solid white;
+            }
+
+        }
+
+        .sec-1 form {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+        }
+
+        .sec-1 .search-bar {
+            width: calc(80% - 50px);
+            height: 40px;
+            margin: 20px 0;
+            padding: 10px 10px 10px 30px;
+            font-size: 20px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--s-bg);
+            box-shadow: var(--shadow);
+            backdrop-filter: var(--filter);
+            -webkit-backdrop-filter: var(--filter);
+            border: none;
+            border-radius: 25px 0 0 25px;
+        }
+
+        .sec-1 .search-bar::placeholder {
+            font-size: 20px;
+            color: white;
+        }
+
+        .sec-1 .search-bar:focus {
+            outline: none;
+        }
+
+        .sec-1 .search-btn {
+            height: 60px;
+            padding: 0 15px;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.35);
+            box-shadow: var(--shadow);
+            backdrop-filter: var(--filter);
+            -webkit-backdrop-filter: var(--filter);
+            border: none;
+            border-radius: 0 25px 25px 0;
+            cursor: pointer;
+        }
+
+        .sec-2 {
+            gap: 15px;
+        }
+
+        .sec-2 ul {
+            width: 100%;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .sec-2 ul li {
+            height: fit-content;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sec-2 ul li a {
+            padding: 20px;
+            text-decoration: none;
+            color: white;
+            height: fit-content;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .sec-2 ul li a span {
+            margin-bottom: 10px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            cursor: pointer;
+        }
+
+        .sec-2 ul li a span:hover {
+            color: rgba(255, 255, 255, 0.35);
+        }
+
+        .sec-2 ul li a h6 {
+            margin: 0;
+            font-size: 15px;
+        }
+
+        .sec-2 ul li .add {
+            height: fit-content;
+            padding: 7.5px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: var(--shadow);
+            backdrop-filter: var(--filter);
+            -webkit-backdrop-filter: var(--filter);
+            border-radius: var(--r);
+            cursor: pointer;
+        }
+
+        .sec-2 ul li .add:hover {
+            background: rgba(255, 255, 255, 0.35);
+        }
+
+        .dialogue {
+            width: 50%;
+            height: fit-content;
+            padding: 40px var(--p);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 40px;
+            background: var(--bg);
+            backdrop-filter: var(--filter);
+            -webkit-backdrop-filter: var(--filter);
+            box-shadow: var(--shadow);
+            border-radius: var(--r);
+            position: fixed;
+            top: auto;
+            left: auto;
+        }
+
+        .dialogue h1 {
+            margin: 0;
+            font-size: 40px;
+        }
+
+        .dialogue .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .dialogue form {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .dialogue form input {
+            width: 60%;
+            padding: 10px 10px 10px 30px;
+            font-size: 20px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--s-bg);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: none;
+            border-radius: 25px;
+        }
+
+        .dialogue form input:focus {
+            outline: none;
+        }
+
+        .dialogue form input::placeholder {
+            font-size: 20px;
+            color: white;
+        }
+
+        .dialogue form input[type="submit"] {
+            width: 17.5%;
+            padding: 10px 0;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(174, 0, 255, 0.35);
+            box-shadow: var(--shadow);
+            backdrop-filter: var(--filter);
+            -webkit-backdrop-filter: var(--filter);
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        .dialogue form input[type="submit"]:hover {
+            background: rgba(174, 0, 255, 0.55);
+        }
+
+        .watermark {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            opacity: 0.75;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="inbox">
+        <a href="https://mail.google.com/mail/u/0/#inbox" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="2.5rem" height="2.5rem" color="#FFFFFF"
+                fill="none">
+                <path d="M2 6L8.91302 9.91697C11.4616 11.361 12.5384 11.361 15.087 9.91697L22 6" stroke="#FFFFFF"
+                    stroke-width="2" stroke-linejoin="round"></path>
+                <path
+                    d="M2.01577 13.4756C2.08114 16.5412 2.11383 18.0739 3.24496 19.2094C4.37608 20.3448 5.95033 20.3843 9.09883 20.4634C11.0393 20.5122 12.9607 20.5122 14.9012 20.4634C18.0497 20.3843 19.6239 20.3448 20.7551 19.2094C21.8862 18.0739 21.9189 16.5412 21.9842 13.4756C22.0053 12.4899 22.0053 11.5101 21.9842 10.5244C21.9189 7.45886 21.8862 5.92609 20.7551 4.79066C19.6239 3.65523 18.0497 3.61568 14.9012 3.53657C12.9607 3.48781 11.0393 3.48781 9.09882 3.53656C5.95033 3.61566 4.37608 3.65521 3.24495 4.79065C2.11382 5.92608 2.08114 7.45885 2.01576 10.5244C1.99474 11.5101 1.99475 12.4899 2.01577 13.4756Z"
+                    stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round"></path>
+            </svg>
+            <h1>
+                Inbox
+            </h1>
+        </a>
+    </div>
+    <main>
+        <section class="sec-1">
+            <h1>
+                Welcome back! Ahsan,
+            </h1>
+            <form action="" method="get" name="search" class="search-form">
+                <input type="text" placeholder="Search here" class="search-bar">
+                <button type="submit" class="search-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px"
+                        fill="#0000ff">
+                        <path
+                            d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" />
+                    </svg>
+                </button>
+            </form>
+        </section>
+        <section class="sec-2">
+            <ul>
+                <li>
+                    <a class="add" id="add-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="2.5rem" viewBox="0 -960 960 960" width="2.5rem"
+                            fill="#FFFFFF" class="add-btn">
+                            <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <section class="dialogue">
+            <h1>Add Shortcut</h1>
+            <span class="close" id="close-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" height="2.5rem" viewBox="0 -960 960 960" width="2.5rem"
+                    fill="#FFFFFF">
+                    <path
+                        d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                </svg>
+            </span>
+            <form class="form-addLink">
+                <input type="text" name="Name" placeholder="Name" id="name">
+                <input type="text" name="Name" placeholder="URL Address" id="url">
+                <input type="submit" value="Add Shortcut" class="submit">
+            </form>
+        </section>
+    </main>
+    <span class="watermark">
+        <h4>Made by</h4>
+        <h1>
+            <a href="http://instagram.com/thisis_ahsan" target="_blank" rel="noopener noreferrer">
+                Ahsan
+            </a>
+        </h1>
+    </span>
+    <script>
+        const linkForm = document.getElementsByClassName("form-addLink")[0];
+        const shortcutsContainer = document.getElementsByTagName("ul")[0];
+        const dialogue = document.getElementsByClassName("dialogue")[0];
+        const sec1 = document.getElementsByClassName('sec-1')[0];
+        const sec2 = document.getElementsByClassName("sec-2")[0];
+        const searchform = document.getElementsByClassName("search-form")[0];
+        const searchbar = document.getElementsByClassName("search-bar")[0];
+
+        const LOCAL_STORAGE_KEY = "shortcuts";
+
+        dialogue.style.display = "none";
+
+        document.getElementById("add-btn").addEventListener("click", () => {
+            dialogue.style.display = "flex";
+            sec1.style.visibility = "hidden";
+            sec2.style.visibility = "hidden";
+        });
+
+        document.getElementById("close-btn").addEventListener("click", () => {
+            dialogue.style.display = "none";
+            sec1.style.visibility = "visible";
+            sec2.style.visibility = "visible";
+        });
+
+        // Load saved shortcuts on page load
+        document.addEventListener("DOMContentLoaded", () => {
+            const saved = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
+            saved.forEach(addShortcutToDOM);
+        });
+
+        linkForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const url = document.getElementById("url").value.trim();
+
+            if (!name || !url) return;
+
+            const shortcut = { name, url };
+            addShortcutToDOM(shortcut);
+
+            const shortcuts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
+            shortcuts.push(shortcut);
+            localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(shortcuts));
+
+            // Reset form and hide dialog
+            document.getElementById("name").value = "";
+            document.getElementById("url").value = "";
+            dialogue.style.display = "none";
+            sec1.style.visibility = "visible";
+            sec2.style.visibility = "visible";
+        });
+
+        function addShortcutToDOM({ name, url }) {
+            const domain = new URL(url).hostname.replace(/^www\./i, "").toLowerCase();
+
+            const li = document.createElement("li");
+            li.innerHTML = `
+        <a href="${url}" target="_parent" rel="noopener noreferrer">
+            <span class="close" data-domain="${domain}">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1.5rem" viewBox="0 -960 960 960" width="1.5rem"
+                    fill="#FFFFFF">
+                    <path
+                        d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                </svg>
+            </span>
+            <img src="https://icons.duckduckgo.com/ip3/${domain}.ico" width="50" height="50" alt="${name}" />
+            <h6>${name}</h6>
+        </a>
+    `;
+
+            const addButtonLi = document.getElementById("add-btn").closest("li");
+            shortcutsContainer.insertBefore(li, addButtonLi);
+
+            // Add event listener to close button
+            const closeBtn = li.querySelector(".close");
+            closeBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                deleteShortcut(domain, li);
+            });
+        }
+
+        function deleteShortcut(domain, liElement) {
+            // Remove from DOM
+            liElement.remove();
+
+            // Remove from localStorage
+            const shortcuts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
+            const updated = shortcuts.filter(sc => {
+                const shortcutDomain = new URL(sc.url).hostname.replace(/^www\./, "");
+                return shortcutDomain !== domain;
+            });
+            localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(updated));
+        }
+
+        searchform.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const query = searchbar.value.trim();
+            searchbar.value = ""; // Clear the search bar
+            if (query) {
+                const googleUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+                window.location.href = googleUrl;
+            }
+        });
+
+    </script>
+</body>
+
+</html>
